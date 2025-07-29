@@ -81,13 +81,13 @@ class _AddBookPageState extends State<AddBookPage> {
                     children: [
                       TextFormField(
                         controller: _titleController,
-                        maxLength: 20,
+                        maxLength: 50,
                         decoration: const InputDecoration(labelText: 'Title'),
                         validator: (value) => value!.isEmpty ? 'Enter title' : null,
                       ),
                       TextFormField(
                         controller: _authorController,
-                        maxLength: 20,
+                        maxLength: 30,
                         decoration: const InputDecoration(labelText: 'Author'),
                         validator: (value) => value!.isEmpty ? 'Enter author' : null,
                       ),

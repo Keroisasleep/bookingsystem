@@ -54,7 +54,7 @@ class _ItemCardState extends State<ItemCard> {
             SizedBox(
               width: double.infinity,
               child: Card(
-                color: showDelete ? Colors.red.withOpacity(0.45) : Colors.white,
+                color: showDelete ? Colors.red.withOpacity(0.6) : Colors.white,
                 margin: const EdgeInsets.all(0),
                 elevation: 4,
                 shape: RoundedRectangleBorder(
@@ -88,7 +88,7 @@ class _ItemCardState extends State<ItemCard> {
             ),
             if (showDelete)
               IconButton(
-                icon: const Icon(Icons.delete, size: 36, color: Colors.red),
+                icon: const Icon(Icons.delete, size: 60, color: Colors.red),
                 onPressed: () async {
                   final confirm = await showDialog<bool>(
                     context: context,
