@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   List<Book> books = [];
 
   Future<void> fetchBooks() async {
-    final response = await http.get(Uri.parse('http://192.168.1.13:3000/books'));
+    final response = await http.get(Uri.parse('http://192.168.195.228:3000/books'));
     if (response.statusCode == 200) {
       final List data = json.decode(response.body);
       setState(() {
@@ -40,11 +40,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
         onPressed: () async {
-          await Navigator.push(
+          final result = await Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const AddBookPage()),
           );
-          fetchBooks();
+
+          if (result == true) {
+            fetchBooks(); // 🔁 Refresh only if a book was actually added
+          }
         },
         child: const Icon(Icons.add),
       ),

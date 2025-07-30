@@ -17,7 +17,7 @@ class _AddBookPageState extends State<AddBookPage> {
 
   Future<void> submitBook() async {
     final response = await http.post(
-      Uri.parse('http://192.168.1.13:3000/books'),
+      Uri.parse('http://192.168.195.228:3000/books'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'title': _titleController.text,
@@ -25,11 +25,8 @@ class _AddBookPageState extends State<AddBookPage> {
       }),
     );
 
-    print('Status: ${response.statusCode}');
-    print('Body: ${response.body}');
-
     if (response.statusCode == 201) {
-      Navigator.pop(context);
+      Navigator.pop(context, true); // Pass 'true' to indicate success
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to add book')),

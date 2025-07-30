@@ -18,8 +18,11 @@ class _ItemCardState extends State<ItemCard> {
   bool showDelete = false;
 
   Future<void> deleteBook() async {
-    final url = Uri.parse('http://192.168.1.13:3000/books/${widget.book.id}');
+    final url = Uri.parse('http://192.168.195.228:3000/books/${widget.book.id}');
     final response = await http.delete(url);
+
+    print('DELETE status: ${response.statusCode}');
+    print('DELETE body: ${response.body}');
 
     if (response.statusCode == 204) {
       widget.onDeleted();

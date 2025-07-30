@@ -1,5 +1,5 @@
 class Book {
-  final int id;
+  final String id;
   final String title;
   final String author;
 
@@ -7,7 +7,7 @@ class Book {
 
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      id: json['id'],
+      id: json['_id'], // MongoDB uses _id
       title: json['title'],
       author: json['author'],
     );
